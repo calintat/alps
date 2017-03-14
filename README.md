@@ -1,5 +1,7 @@
 # Android Library for Preferences and Settings
 
+[![](https://jitpack.io/v/calintat/alps.svg)](https://jitpack.io/#calintat/alps)
+
 Alps is a minimal Android library for reading and writing shared preferences.
 
 It aims to remove some boilerplate code when accessing your app's default preferences.
