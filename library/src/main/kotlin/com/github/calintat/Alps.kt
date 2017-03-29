@@ -1,6 +1,9 @@
 package com.github.calintat
 
+import android.app.Activity
 import android.content.Context
+import android.os.Bundle
+import android.preference.PreferenceFragment
 import android.preference.PreferenceManager
 
 object Alps {
@@ -27,7 +30,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValue Value to return if this preference does not exist (false by default).
      *
-     * @return Returns the preference value if it exists, or defValue.
+     * @return Returns the preference value if it exists, or [defValue].
      *
      * @throws ClassCastException if there is a preference with this name that is not a boolean.
      */
@@ -55,7 +58,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValue Value to return if this preference does not exist (0 by default).
      *
-     * @return Returns the preference value if it exists, or defValue.
+     * @return Returns the preference value if it exists, or [defValue].
      *
      * @throws ClassCastException if there is a preference with this name that is not a float.
      */
@@ -83,7 +86,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValue Value to return if this preference does not exist (0 by default).
      *
-     * @return Returns the preference value if it exists, or defValue.
+     * @return Returns the preference value if it exists, or [defValue].
      *
      * @throws ClassCastException if there is a preference with this name that is not an int.
      */
@@ -111,7 +114,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValue Value to return if this preference does not exist (0 by default).
      *
-     * @return Returns the preference value if it exists, or defValue.
+     * @return Returns the preference value if it exists, or [defValue].
      *
      * @throws ClassCastException if there is a preference with this name that is not a long.
      */
@@ -139,7 +142,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValue Value to return if this preference does not exist (empty by default).
      *
-     * @return Returns the preference value if it exists, or defValue.
+     * @return Returns the preference value if it exists, or [defValue].
      *
      * @throws ClassCastException if there is a preference with this name that is not a string.
      */
@@ -181,7 +184,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValues Values to return if this preference does not exist (empty by default).
      *
-     * @return Returns the preference values if they exist, or defValues.
+     * @return Returns the preference values if they exist, or [defValues].
      *
      * @throws ClassCastException if there is a preference with this name that is not a set.
      */
@@ -209,7 +212,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValues Values to return if this preference does not exist (empty by default).
      *
-     * @return Returns the preference values if they exist, or defValues.
+     * @return Returns the preference values if they exist, or [defValues].
      *
      * @throws ClassCastException if there is a preference with this name that is not a set.
      */
@@ -293,7 +296,7 @@ object Alps {
      * @param key The name of the preference to retrieve.
      * @param defValues Values to return if this preference does not exist (empty by default).
      *
-     * @return Returns the preference values if they exist, or defValues.
+     * @return Returns the preference values if they exist, or [defValues].
      *
      * @throws ClassCastException if there is a preference with this name that is not a set.
      */
@@ -313,6 +316,27 @@ object Alps {
     fun putStringSet(key: String, values: Set<String>?) {
 
         values?.let { preferences.edit().putStringSet(key, it).apply() }
+    }
+
+    /**
+     * Populate the given container with a preference fragment generated from an XML resource.
+     *
+     * @param containerViewId Identifier of the container where the fragment will be added.
+     * @param preferencesResId The XML resource ID to inflate.
+     */
+    fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int) {
+
+        class SettingsFragment : PreferenceFragment() {
+
+            override fun onCreate(savedInstanceState: Bundle?) {
+
+                super.onCreate(savedInstanceState)
+
+                addPreferencesFromResource(preferencesResId)
+            }
+        }
+
+        fragmentManager.beginTransaction().add(containerViewId, SettingsFragment()).commit()
     }
 
     /**
