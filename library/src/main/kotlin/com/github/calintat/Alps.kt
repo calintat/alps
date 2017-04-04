@@ -2,358 +2,347 @@ package com.github.calintat
 
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceFragment
 import android.preference.PreferenceManager
 
-object Alps {
+/**
+ * The default shared preferences of the given context.
+ */
+val Context.defaultPreferences: SharedPreferences
 
-    private lateinit var context: Context
+    get() = PreferenceManager.getDefaultSharedPreferences(this)
 
-    private val preferences by lazy { PreferenceManager.getDefaultSharedPreferences(context) }
+/**
+ * Retrieve a boolean value from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValue Value to return if this preference does not exist (false by default).
+ *
+ * @return Returns the preference value if it exists, or [defValue].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a boolean.
+ */
+fun Context.getBoolean(key: String, defValue: Boolean = false): Boolean {
 
-    /**
-     * Initialize the object with a context.
-     *
-     * Note that this must be called before any other methods.
-     *
-     * @param context The context of the preferences whose values this object will operate on.
-     */
-    fun init(context: Context) {
+    return defaultPreferences.getBoolean(key, defValue)
+}
 
-        this.context = context
-    }
+/**
+ * Set a boolean value in the default preferences.
+ *
+ * Note that if this value is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param value The new value for the preference which is allowed to be null.
+ */
+fun Context.putBoolean(key: String, value: Boolean?) {
 
-    /**
-     * Retrieve a boolean value from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValue Value to return if this preference does not exist (false by default).
-     *
-     * @return Returns the preference value if it exists, or [defValue].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a boolean.
-     */
-    fun getBoolean(key: String, defValue: Boolean = false): Boolean {
+    value?.let { defaultPreferences.edit().putBoolean(key, it).apply() }
+}
 
-        return preferences.getBoolean(key, defValue)
-    }
+/**
+ * Retrieve a float value from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValue Value to return if this preference does not exist (0 by default).
+ *
+ * @return Returns the preference value if it exists, or [defValue].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a float.
+ */
+fun Context.getFloat(key: String, defValue: Float = 0f): Float {
 
-    /**
-     * Set a boolean value in the default preferences.
-     *
-     * Note that if this value is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param value The new value for the preference which is allowed to be null.
-     */
-    fun putBoolean(key: String, value: Boolean?) {
+    return defaultPreferences.getFloat(key, defValue)
+}
 
-        value?.let { preferences.edit().putBoolean(key, it).apply() }
-    }
+/**
+ * Set a float value in the default preferences.
+ *
+ * Note that if this value is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param value The new value for the preference which is allowed to be null.
+ */
+fun Context.putFloat(key: String, value: Float?) {
 
-    /**
-     * Retrieve a float value from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValue Value to return if this preference does not exist (0 by default).
-     *
-     * @return Returns the preference value if it exists, or [defValue].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a float.
-     */
-    fun getFloat(key: String, defValue: Float = 0f): Float {
+    value?.let { defaultPreferences.edit().putFloat(key, it).apply() }
+}
 
-        return preferences.getFloat(key, defValue)
-    }
+/**
+ * Retrieve an int value from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValue Value to return if this preference does not exist (0 by default).
+ *
+ * @return Returns the preference value if it exists, or [defValue].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not an int.
+ */
+fun Context.getInt(key: String, defValue: Int = 0): Int {
 
-    /**
-     * Set a float value in the default preferences.
-     *
-     * Note that if this value is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param value The new value for the preference which is allowed to be null.
-     */
-    fun putFloat(key: String, value: Float?) {
+    return defaultPreferences.getInt(key, defValue)
+}
 
-        value?.let { preferences.edit().putFloat(key, it).apply() }
-    }
+/**
+ * Set an int value in the default preferences.
+ *
+ * Note that if this value is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param value The new value for the preference which is allowed to be null.
+ */
+fun Context.putInt(key: String, value: Int?) {
 
-    /**
-     * Retrieve an int value from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValue Value to return if this preference does not exist (0 by default).
-     *
-     * @return Returns the preference value if it exists, or [defValue].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not an int.
-     */
-    fun getInt(key: String, defValue: Int = 0): Int {
+    value?.let { defaultPreferences.edit().putInt(key, it).apply() }
+}
 
-        return preferences.getInt(key, defValue)
-    }
+/**
+ * Retrieve a long value from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValue Value to return if this preference does not exist (0 by default).
+ *
+ * @return Returns the preference value if it exists, or [defValue].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a long.
+ */
+fun Context.getLong(key: String, defValue: Long = 0): Long {
 
-    /**
-     * Set an int value in the default preferences.
-     *
-     * Note that if this value is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param value The new value for the preference which is allowed to be null.
-     */
-    fun putInt(key: String, value: Int?) {
+    return defaultPreferences.getLong(key, defValue)
+}
 
-        value?.let { preferences.edit().putInt(key, it).apply() }
-    }
+/**
+ * Set a long value in the default preferences.
+ *
+ * Note that if this value is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param value The new value for the preference which is allowed to be null.
+ */
+fun Context.putLong(key: String, value: Long?) {
 
-    /**
-     * Retrieve a long value from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValue Value to return if this preference does not exist (0 by default).
-     *
-     * @return Returns the preference value if it exists, or [defValue].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a long.
-     */
-    fun getLong(key: String, defValue: Long = 0): Long {
+    value?.let { defaultPreferences.edit().putLong(key, it).apply() }
+}
 
-        return preferences.getLong(key, defValue)
-    }
+/**
+ * Retrieve a non-null string value from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValue Value to return if this preference does not exist (empty by default).
+ *
+ * @return Returns the preference value if it exists, or [defValue].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a string.
+ */
+fun Context.getString(key: String, defValue: String = ""): String {
 
-    /**
-     * Set a long value in the default preferences.
-     *
-     * Note that if this value is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param value The new value for the preference which is allowed to be null.
-     */
-    fun putLong(key: String, value: Long?) {
+    return defaultPreferences.getString(key, defValue)
+}
 
-        value?.let { preferences.edit().putLong(key, it).apply() }
-    }
+/**
+ * Retrieve a nullable string value from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ *
+ * @return Returns the preference value if it exists, or null.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a string.
+ */
+fun Context.getStringOrNull(key: String): String? {
 
-    /**
-     * Retrieve a non-null string value from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValue Value to return if this preference does not exist (empty by default).
-     *
-     * @return Returns the preference value if it exists, or [defValue].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a string.
-     */
-    fun getString(key: String, defValue: String = ""): String {
+    return defaultPreferences.getString(key, null)
+}
 
-        return preferences.getString(key, defValue)
-    }
+/**
+ * Set a string value in the default preferences.
+ *
+ * Note that if this value is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param value The new value for the preference which is allowed to be null.
+ */
+fun Context.putString(key: String, value: String?) {
 
-    /**
-     * Retrieve a nullable string value from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     *
-     * @return Returns the preference value if it exists, or null.
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a string.
-     */
-    fun getStringOrNull(key: String): String? {
+    value?.let { defaultPreferences.edit().putString(key, it).apply() }
+}
 
-        return preferences.getString(key, null)
-    }
+/**
+ * Retrieve a set of boolean values from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValues Values to return if this preference does not exist (empty by default).
+ *
+ * @return Returns the preference values if they exist, or [defValues].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.getBooleanSet(key: String, defValues: Set<Boolean> = emptySet()): Set<Boolean> {
 
-    /**
-     * Set a string value in the default preferences.
-     *
-     * Note that if this value is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param value The new value for the preference which is allowed to be null.
-     */
-    fun putString(key: String, value: String?) {
+    return convert(defaultPreferences.getStringSet(key, convert(defValues)), String::toBoolean)
+}
 
-        value?.let { preferences.edit().putString(key, it).apply() }
-    }
+/**
+ * Set a set of boolean values in the default preferences.
+ *
+ * Note that if this set is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param values The set of new values for the preference which is allowed to be null.
+ */
+fun Context.putBooleanSet(key: String, values: Set<Boolean>?) {
 
-    /**
-     * Retrieve a set of boolean values from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValues Values to return if this preference does not exist (empty by default).
-     *
-     * @return Returns the preference values if they exist, or [defValues].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a set.
-     */
-    fun getBooleanSet(key: String, defValues: Set<Boolean> = emptySet()): Set<Boolean> {
+    values?.let { defaultPreferences.edit().putStringSet(key, convert(it)).apply() }
+}
 
-        return convert(preferences.getStringSet(key, convert(defValues)), String::toBoolean)
-    }
+/**
+ * Retrieve a set of float values from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValues Values to return if this preference does not exist (empty by default).
+ *
+ * @return Returns the preference values if they exist, or [defValues].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.getFloatSet(key: String, defValues: Set<Float> = emptySet()): Set<Float> {
 
-    /**
-     * Set a set of boolean values in the default preferences.
-     *
-     * Note that if this set is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param values The set of new values for the preference which is allowed to be null.
-     */
-    fun putBooleanSet(key: String, values: Set<Boolean>?) {
+    return convert(defaultPreferences.getStringSet(key, convert(defValues)), String::toFloatOrNull)
+}
 
-        values?.let { preferences.edit().putStringSet(key, convert(it)).apply() }
-    }
+/**
+ * Set a set of float values in the default preferences.
+ *
+ * Note that if this set is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param values The set of new values for the preference which is allowed to be null.
+ */
+fun Context.putFloatSet(key: String, values: Set<Float>?) {
 
-    /**
-     * Retrieve a set of float values from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValues Values to return if this preference does not exist (empty by default).
-     *
-     * @return Returns the preference values if they exist, or [defValues].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a set.
-     */
-    fun getFloatSet(key: String, defValues: Set<Float> = emptySet()): Set<Float> {
+    values?.let { defaultPreferences.edit().putStringSet(key, convert(it)).apply() }
+}
 
-        return convert(preferences.getStringSet(key, convert(defValues)), String::toFloatOrNull)
-    }
+/**
+ * Retrieve a set of int values from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValues Values to return if this preference does not exist (empty by default).
+ *
+ * @return Returns the preference values if they exist, or defValues.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.getIntSet(key: String, defValues: Set<Int> = emptySet()): Set<Int> {
 
-    /**
-     * Set a set of float values in the default preferences.
-     *
-     * Note that if this set is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param values The set of new values for the preference which is allowed to be null.
-     */
-    fun putFloatSet(key: String, values: Set<Float>?) {
+    return convert(defaultPreferences.getStringSet(key, convert(defValues)), String::toIntOrNull)
+}
 
-        values?.let { preferences.edit().putStringSet(key, convert(it)).apply() }
-    }
+/**
+ * Set a set of int values in the default preferences.
+ *
+ * Note that if this set is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param values The set of new values for the preference which is allowed to be null.
+ */
+fun Context.putIntSet(key: String, values: Set<Int>?) {
 
-    /**
-     * Retrieve a set of int values from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValues Values to return if this preference does not exist (empty by default).
-     *
-     * @return Returns the preference values if they exist, or defValues.
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a set.
-     */
-    fun getIntSet(key: String, defValues: Set<Int> = emptySet()): Set<Int> {
+    values?.let { defaultPreferences.edit().putStringSet(key, convert(it)).apply() }
+}
 
-        return convert(preferences.getStringSet(key, convert(defValues)), String::toIntOrNull)
-    }
+/**
+ * Retrieve a set of long values from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValues Values to return if this preference does not exist (empty by default).
+ *
+ * @return Returns the preference values if they exist, or defValues.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.getLongSet(key: String, defValues: Set<Long> = emptySet()): Set<Long> {
 
-    /**
-     * Set a set of int values in the default preferences.
-     *
-     * Note that if this set is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param values The set of new values for the preference which is allowed to be null.
-     */
-    fun putIntSet(key: String, values: Set<Int>?) {
+    return convert(defaultPreferences.getStringSet(key, convert(defValues)), String::toLongOrNull)
+}
 
-        values?.let { preferences.edit().putStringSet(key, convert(it)).apply() }
-    }
+/**
+ * Set a set of long values in the default preferences.
+ *
+ * Note that if this set is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param values The set of new values for the preference which is allowed to be null.
+ */
+fun Context.putLongSet(key: String, values: Set<Long>?) {
 
-    /**
-     * Retrieve a set of long values from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValues Values to return if this preference does not exist (empty by default).
-     *
-     * @return Returns the preference values if they exist, or defValues.
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a set.
-     */
-    fun getLongSet(key: String, defValues: Set<Long> = emptySet()): Set<Long> {
+    values?.let { defaultPreferences.edit().putStringSet(key, convert(it)).apply() }
+}
 
-        return convert(preferences.getStringSet(key, convert(defValues)), String::toLongOrNull)
-    }
+/**
+ * Retrieve a set of string values from the default preferences.
+ *
+ * @param key The name of the preference to retrieve.
+ * @param defValues Values to return if this preference does not exist (empty by default).
+ *
+ * @return Returns the preference values if they exist, or [defValues].
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.getStringSet(key: String, defValues: Set<String> = emptySet()): Set<String> {
 
-    /**
-     * Set a set of long values in the default preferences.
-     *
-     * Note that if this set is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param values The set of new values for the preference which is allowed to be null.
-     */
-    fun putLongSet(key: String, values: Set<Long>?) {
+    return defaultPreferences.getStringSet(key, defValues)
+}
 
-        values?.let { preferences.edit().putStringSet(key, convert(it)).apply() }
-    }
+/**
+ * Set a set of string values in the default preferences.
+ *
+ * Note that if this set is null then the method does nothing.
+ *
+ * @param key The name of the preference to modify.
+ * @param values The set of new values for the preference which is allowed to be null.
+ */
+fun Context.putStringSet(key: String, values: Set<String>?) {
 
-    /**
-     * Retrieve a set of string values from the default preferences.
-     *
-     * @param key The name of the preference to retrieve.
-     * @param defValues Values to return if this preference does not exist (empty by default).
-     *
-     * @return Returns the preference values if they exist, or [defValues].
-     *
-     * @throws ClassCastException if there is a preference with this name that is not a set.
-     */
-    fun getStringSet(key: String, defValues: Set<String> = emptySet()): Set<String> {
+    values?.let { defaultPreferences.edit().putStringSet(key, it).apply() }
+}
 
-        return preferences.getStringSet(key, defValues)
-    }
+/**
+ * Populate the given container with a preference fragment generated from an XML resource.
+ *
+ * @param containerViewId Identifier of the container where the fragment will be added.
+ * @param preferencesResId The XML resource ID to inflate.
+ */
+fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int) {
 
-    /**
-     * Set a set of string values in the default preferences.
-     *
-     * Note that if this set is null then the method does nothing.
-     *
-     * @param key The name of the preference to modify.
-     * @param values The set of new values for the preference which is allowed to be null.
-     */
-    fun putStringSet(key: String, values: Set<String>?) {
+    class SettingsFragment : PreferenceFragment() {
 
-        values?.let { preferences.edit().putStringSet(key, it).apply() }
-    }
+        override fun onCreate(savedInstanceState: Bundle?) {
 
-    /**
-     * Populate the given container with a preference fragment generated from an XML resource.
-     *
-     * @param containerViewId Identifier of the container where the fragment will be added.
-     * @param preferencesResId The XML resource ID to inflate.
-     */
-    fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int) {
+            super.onCreate(savedInstanceState)
 
-        class SettingsFragment : PreferenceFragment() {
-
-            override fun onCreate(savedInstanceState: Bundle?) {
-
-                super.onCreate(savedInstanceState)
-
-                addPreferencesFromResource(preferencesResId)
-            }
+            addPreferencesFromResource(preferencesResId)
         }
-
-        fragmentManager.beginTransaction().add(containerViewId, SettingsFragment()).commit()
     }
 
-    /**
-     * Convert a set of strings to a set of values of type [T].
-     *
-     * Note that [transform] must return null if it fails, and those values will be omitted.
-     */
-    private fun<T : Any> convert(set: Set<String>, transform: (String) -> T?): Set<T> {
+    fragmentManager.beginTransaction().add(containerViewId, SettingsFragment()).commit()
+}
 
-        return set.map(transform).filterNotNull().toSet()
-    }
+/**
+ * Convert a set of strings to a set of values of type [T].
+ *
+ * Note that [transform] must return null if it fails, and those values will be omitted.
+ */
+private fun <T : Any> convert(set: Set<String>, transform: (String) -> T?): Set<T> {
 
-    /**
-     * Convert a set of values of type [T] to a set of strings.
-     */
-    private fun<T> convert(set: Set<T>): Set<String> {
+    return set.map(transform).filterNotNull().toSet()
+}
 
-        return set.map { it.toString() }.toSet()
-    }
+/**
+ * Convert a set of values of type [T] to a set of strings.
+ */
+private fun <T> convert(set: Set<T>): Set<String> {
+
+    return set.map { it.toString() }.toSet()
 }
