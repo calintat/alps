@@ -316,17 +316,32 @@ fun Context.putStringSet(key: String, values: Set<String>?) {
  */
 fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int) {
 
-    class SettingsFragment : PreferenceFragment() {
+    val settingsFragment = SettingsFragment()
 
-        override fun onCreate(savedInstanceState: Bundle?) {
+    val args = Bundle()
 
-            super.onCreate(savedInstanceState)
+    args.putInt(settingsFragment.PREFERENCE_RES_ID, preferencesResId)
 
-            addPreferencesFromResource(preferencesResId)
-        }
+    settingsFragment.arguments = args
+
+    fragmentManager.beginTransaction().replace(containerViewId, settingsFragment).commit()
+}
+
+/**
+ * Implementation of the preference fragment which inflates a given XML resource.
+ *
+ * Note that you must pass the XML resource ID as a construction argument.
+ */
+class SettingsFragment : PreferenceFragment() {
+
+    val PREFERENCE_RES_ID = "com.calintat.github.PREFERENCE_RES_ID"
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+
+        addPreferencesFromResource(arguments.getInt(PREFERENCE_RES_ID))
     }
-
-    fragmentManager.beginTransaction().add(containerViewId, SettingsFragment()).commit()
 }
 
 /**
@@ -342,7 +357,4 @@ private fun <T : Any> convert(set: Set<String>, transform: (String) -> T?): Set<
 /**
  * Convert a set of values of type [T] to a set of strings.
  */
-private fun <T> convert(set: Set<T>): Set<String> {
-
-    return set.map { it.toString() }.toSet()
-}
+private fun <T> convert(set: Set<T>) = set.map { it.toString() }.toSet()
