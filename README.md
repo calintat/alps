@@ -40,3 +40,9 @@ You can also use the following to populate a container view with a preference fr
 ```java
 populateWithPreferences(int containerViewId, int preferencesResId)
 ```
+
+Since version 1.2, you can also use property delegates (in Kotlin only):
+
+```kotlin
+val str by stringPref("pref_string", "default")
+```
