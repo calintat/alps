@@ -23,7 +23,7 @@ Add the dependency to the gradle build file:
 
 ```gradle
 dependencies {
-    compile 'com.github.calintat:alps:1.1.1'
+    compile 'com.github.calintat:alps:1.2.1'
 }
 ```
 
