@@ -89,6 +89,81 @@ fun Context.stringPref(key: String, defValue: String = ""): PreferenceProperty<S
 }
 
 /**
+ * Returns a property delegate for a read/write property corresponding to a boolean set preference.
+ * Note that this uses the default shared preferences of the receiver context.
+ * Changing the value of the property will be reflected in the shared preferences.
+ *
+ * @param key The name of the preference used as a backing field for the property.
+ * @param defValue The default value of the property if the preference does not exist.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.booleanSetPref(key: String, defValue: Set<Boolean> = emptySet()): PreferenceProperty<Set<Boolean>> {
+
+    return PreferenceProperty(key, defValue, Context::getBooleanSet, Context::putBooleanSet)
+}
+
+/**
+ * Returns a property delegate for a read/write property corresponding to a float set preference.
+ * Note that this uses the default shared preferences of the receiver context.
+ * Changing the value of the property will be reflected in the shared preferences.
+ *
+ * @param key The name of the preference used as a backing field for the property.
+ * @param defValue The default value of the property if the preference does not exist.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.floatSetPref(key: String, defValue: Set<Float> = emptySet()): PreferenceProperty<Set<Float>> {
+
+    return PreferenceProperty(key, defValue, Context::getFloatSet, Context::putFloatSet)
+}
+
+/**
+ * Returns a property delegate for a read/write property corresponding to an int set preference.
+ * Note that this uses the default shared preferences of the receiver context.
+ * Changing the value of the property will be reflected in the shared preferences.
+ *
+ * @param key The name of the preference used as a backing field for the property.
+ * @param defValue The default value of the property if the preference does not exist.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.intSetPref(key: String, defValue: Set<Int> = emptySet()): PreferenceProperty<Set<Int>> {
+
+    return PreferenceProperty(key, defValue, Context::getIntSet, Context::putIntSet)
+}
+
+/**
+ * Returns a property delegate for a read/write property corresponding to a long set preference.
+ * Note that this uses the default shared preferences of the receiver context.
+ * Changing the value of the property will be reflected in the shared preferences.
+ *
+ * @param key The name of the preference used as a backing field for the property.
+ * @param defValue The default value of the property if the preference does not exist.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.longSetPref(key: String, defValue: Set<Long> = emptySet()): PreferenceProperty<Set<Long>> {
+
+    return PreferenceProperty(key, defValue, Context::getLongSet, Context::putLongSet)
+}
+
+/**
+ * Returns a property delegate for a read/write property corresponding to a string set preference.
+ * Note that this uses the default shared preferences of the receiver context.
+ * Changing the value of the property will be reflected in the shared preferences.
+ *
+ * @param key The name of the preference used as a backing field for the property.
+ * @param defValue The default value of the property if the preference does not exist.
+ *
+ * @throws ClassCastException if there is a preference with this name that is not a set.
+ */
+fun Context.stringSetPref(key: String, defValue: Set<String> = emptySet()): PreferenceProperty<Set<String>> {
+
+    return PreferenceProperty(key, defValue, Context::getStringSet, Context::putStringSet)
+}
+
+/**
  * A property delegate of properties that use a preference as a sort of backing field.
  *
  * @param key The name of the preference used as a backing field for the property.
