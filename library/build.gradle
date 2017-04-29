@@ -18,13 +18,17 @@ android {
 
         targetSdkVersion 25
 
-        versionCode 5
+        versionCode 6
 
-        versionName "1.2"
+        versionName "1.2.1"
     }
 }
 
 dependencies {
+
+    ext.anko_version = '0.9.1'
+
+    compile "org.jetbrains.anko:anko-common:$anko_version"
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
