@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.preference.PreferenceFragment
 import android.preference.PreferenceManager
+import org.jetbrains.anko.withArguments
 
 /**
  * The default shared preferences of the given context.
@@ -316,13 +317,7 @@ fun Context.putStringSet(key: String, values: Set<String>?) {
  */
 fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int) {
 
-    val settingsFragment = SettingsFragment()
-
-    val args = Bundle()
-
-    args.putInt(settingsFragment.PREFERENCE_RES_ID, preferencesResId)
-
-    settingsFragment.arguments = args
+    val settingsFragment = SettingsFragment.build(preferencesResId)
 
     fragmentManager.beginTransaction().replace(containerViewId, settingsFragment).commit()
 }
@@ -330,11 +325,19 @@ fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int
 /**
  * Implementation of the preference fragment which inflates a given XML resource.
  *
- * Note that you must pass the XML resource ID as a construction argument.
+ * Note that you must pass the XML resource ID as a construction argument or use the builder.
  */
 class SettingsFragment : PreferenceFragment() {
 
-    val PREFERENCE_RES_ID = "com.calintat.github.PREFERENCE_RES_ID"
+    companion object Builder {
+
+        const val PREFERENCE_RES_ID = "com.calintat.github.PREFERENCE_RES_ID"
+
+        fun build(preferencesResId: Int): SettingsFragment {
+
+            return SettingsFragment().withArguments(PREFERENCE_RES_ID to preferencesResId)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
