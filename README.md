@@ -6,10 +6,9 @@ Alps is a minimal Android library for reading and writing shared preferences.
 
 It aims to remove some boilerplate code when accessing your app's default preferences.
 
-How to use
-----------
+## Installation
 
-Add the JitPack maven repository to the list of repositories:
+Add JitPack to your list of repositories:
 
 ```gradle
 allprojects {
@@ -27,7 +26,9 @@ dependencies {
 }
 ```
 
-Now you can use the get and put methods to access your app's settings:
+## Features
+
+You can use the get and put methods to access your app's settings:
 
 ```java
 putBoolean("pref_boolean", false);
