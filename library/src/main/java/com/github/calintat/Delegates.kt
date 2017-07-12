@@ -1,6 +1,7 @@
 package com.github.calintat
 
 import android.content.Context
+import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 /**
@@ -164,19 +165,19 @@ fun Context.stringSetPref(key: String, defValue: Set<String> = emptySet()): Pref
 }
 
 /**
- * A property delegate of properties that use a preference as a sort of backing field.
+ * A property delegate that use a preference as a sort of backing field.
  *
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  */
-class PreferenceProperty<T>(val key: String, val defValue: T, val get: Get<T>, val put: Put<T>) {
+class PreferenceProperty<T>(val key: String, val defValue: T, val get: Get<T>, val put: Put<T>) : ReadWriteProperty<Context, T> {
 
-    operator fun getValue(thisRef: Context, property: KProperty<*>): T {
+    override operator fun getValue(thisRef: Context, property: KProperty<*>): T {
 
         return thisRef.get(key, defValue)
     }
 
-    operator fun setValue(thisRef: Context, property: KProperty<*>, value: T) {
+    override operator fun setValue(thisRef: Context, property: KProperty<*>, value: T) {
 
         thisRef.put(key, value)
     }
