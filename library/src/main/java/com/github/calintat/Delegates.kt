@@ -22,7 +22,7 @@ private typealias Put<T> = Context.(String, T) -> Unit
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a boolean.
+ * @throws ClassCastException If there is a preference with this name that is not a boolean.
  */
 fun Context.booleanPref(key: String, defValue: Boolean = false): PreferenceProperty<Boolean> {
 
@@ -37,7 +37,7 @@ fun Context.booleanPref(key: String, defValue: Boolean = false): PreferencePrope
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a float.
+ * @throws ClassCastException If there is a preference with this name that is not a float.
  */
 fun Context.floatPref(key: String, defValue: Float = 0f): PreferenceProperty<Float> {
     
@@ -52,7 +52,7 @@ fun Context.floatPref(key: String, defValue: Float = 0f): PreferenceProperty<Flo
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not an int.
+ * @throws ClassCastException If there is a preference with this name that is not an int.
  */
 fun Context.intPref(key: String, defValue: Int = 0): PreferenceProperty<Int> {
     
@@ -67,7 +67,7 @@ fun Context.intPref(key: String, defValue: Int = 0): PreferenceProperty<Int> {
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a long.
+ * @throws ClassCastException If there is a preference with this name that is not a long.
  */
 fun Context.longPref(key: String, defValue: Long = 0): PreferenceProperty<Long> {
     
@@ -82,7 +82,7 @@ fun Context.longPref(key: String, defValue: Long = 0): PreferenceProperty<Long> 
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a string.
+ * @throws ClassCastException If there is a preference with this name that is not a string.
  */
 fun Context.stringPref(key: String, defValue: String = ""): PreferenceProperty<String> {
     
@@ -97,7 +97,7 @@ fun Context.stringPref(key: String, defValue: String = ""): PreferenceProperty<S
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.booleanSetPref(key: String, defValue: Set<Boolean> = emptySet()): PreferenceProperty<Set<Boolean>> {
 
@@ -112,7 +112,7 @@ fun Context.booleanSetPref(key: String, defValue: Set<Boolean> = emptySet()): Pr
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.floatSetPref(key: String, defValue: Set<Float> = emptySet()): PreferenceProperty<Set<Float>> {
 
@@ -127,7 +127,7 @@ fun Context.floatSetPref(key: String, defValue: Set<Float> = emptySet()): Prefer
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.intSetPref(key: String, defValue: Set<Int> = emptySet()): PreferenceProperty<Set<Int>> {
 
@@ -142,7 +142,7 @@ fun Context.intSetPref(key: String, defValue: Set<Int> = emptySet()): Preference
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.longSetPref(key: String, defValue: Set<Long> = emptySet()): PreferenceProperty<Set<Long>> {
 
@@ -157,7 +157,7 @@ fun Context.longSetPref(key: String, defValue: Set<Long> = emptySet()): Preferen
  * @param key The name of the preference used as a backing field for the property.
  * @param defValue The default value of the property if the preference does not exist.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.stringSetPref(key: String, defValue: Set<String> = emptySet()): PreferenceProperty<Set<String>> {
 
