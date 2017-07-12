@@ -10,7 +10,7 @@ android {
 
     compileSdkVersion 25
 
-    buildToolsVersion "25.0.2"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
 
@@ -25,10 +25,6 @@ android {
 }
 
 dependencies {
-
-    ext.anko_version = '0.9.1'
-
-    compile "org.jetbrains.anko:anko-common:$anko_version"
 
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
