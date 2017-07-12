@@ -20,17 +20,17 @@ fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int
 /**
  * Implementation of the preference fragment which inflates a given XML resource.
  *
- * Note that you must pass the XML resource ID as a construction argument or use the builder.
+ * Note that you must pass the XML resource ID using the builder.
  */
 class PreferencesFragmentXml : PreferenceFragment() {
 
     companion object Builder {
 
-        const val KEY_PREFERENCE_RES_ID = "com.calintat.github.KEY_PREFERENCE_RES_ID"
+        private const val key = "com.calintat.github.PreferencesFragmentXml.key"
 
         fun build(preferencesResId: Int): PreferencesFragmentXml {
 
-            val arguments = Bundle().apply { putInt(KEY_PREFERENCE_RES_ID, preferencesResId) }
+            val arguments = Bundle().apply { putInt(key, preferencesResId) }
 
             return PreferencesFragmentXml().apply { this.arguments = arguments }
         }
@@ -38,6 +38,6 @@ class PreferencesFragmentXml : PreferenceFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        super.onCreate(savedInstanceState); addPreferencesFromResource(arguments.getInt(KEY_PREFERENCE_RES_ID))
+        super.onCreate(savedInstanceState); addPreferencesFromResource(arguments.getInt(key))
     }
 }
