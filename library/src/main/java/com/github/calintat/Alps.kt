@@ -1,29 +1,22 @@
 package com.github.calintat
 
-import android.app.Activity
 import android.content.Context
-import android.content.SharedPreferences
-import android.os.Bundle
-import android.preference.PreferenceFragment
 import android.preference.PreferenceManager
-import org.jetbrains.anko.withArguments
 
 /**
  * The default shared preferences of the given context.
  */
-val Context.defaultPreferences: SharedPreferences
-
-    get() = PreferenceManager.getDefaultSharedPreferences(this)
+val Context.defaultPreferences get() = PreferenceManager.getDefaultSharedPreferences(this)!!
 
 /**
- * Retrieve a boolean value from the default preferences.
+ * Retrieves a boolean value from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValue Value to return if this preference does not exist (false by default).
  *
  * @return Returns the preference value if it exists, or [defValue].
  *
- * @throws ClassCastException if there is a preference with this name that is not a boolean.
+ * @throws ClassCastException If there is a preference with this name that is not a boolean.
  */
 fun Context.getBoolean(key: String, defValue: Boolean = false): Boolean {
 
@@ -31,9 +24,9 @@ fun Context.getBoolean(key: String, defValue: Boolean = false): Boolean {
 }
 
 /**
- * Set a boolean value in the default preferences.
+ * Sets a boolean value in the default preferences.
  *
- * Note that if this value is null then the method does nothing.
+ * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
  * @param value The new value for the preference which is allowed to be null.
@@ -44,14 +37,14 @@ fun Context.putBoolean(key: String, value: Boolean?) {
 }
 
 /**
- * Retrieve a float value from the default preferences.
+ * Retrieves a float value from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValue Value to return if this preference does not exist (0 by default).
  *
  * @return Returns the preference value if it exists, or [defValue].
  *
- * @throws ClassCastException if there is a preference with this name that is not a float.
+ * @throws ClassCastException If there is a preference with this name that is not a float.
  */
 fun Context.getFloat(key: String, defValue: Float = 0f): Float {
 
@@ -59,9 +52,9 @@ fun Context.getFloat(key: String, defValue: Float = 0f): Float {
 }
 
 /**
- * Set a float value in the default preferences.
+ * Sets a float value in the default preferences.
  *
- * Note that if this value is null then the method does nothing.
+ * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
  * @param value The new value for the preference which is allowed to be null.
@@ -72,14 +65,14 @@ fun Context.putFloat(key: String, value: Float?) {
 }
 
 /**
- * Retrieve an int value from the default preferences.
+ * Retrieves an int value from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValue Value to return if this preference does not exist (0 by default).
  *
  * @return Returns the preference value if it exists, or [defValue].
  *
- * @throws ClassCastException if there is a preference with this name that is not an int.
+ * @throws ClassCastException If there is a preference with this name that is not an int.
  */
 fun Context.getInt(key: String, defValue: Int = 0): Int {
 
@@ -87,9 +80,9 @@ fun Context.getInt(key: String, defValue: Int = 0): Int {
 }
 
 /**
- * Set an int value in the default preferences.
+ * Sets an int value in the default preferences.
  *
- * Note that if this value is null then the method does nothing.
+ * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
  * @param value The new value for the preference which is allowed to be null.
@@ -100,14 +93,14 @@ fun Context.putInt(key: String, value: Int?) {
 }
 
 /**
- * Retrieve a long value from the default preferences.
+ * Retrieves a long value from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValue Value to return if this preference does not exist (0 by default).
  *
  * @return Returns the preference value if it exists, or [defValue].
  *
- * @throws ClassCastException if there is a preference with this name that is not a long.
+ * @throws ClassCastException If there is a preference with this name that is not a long.
  */
 fun Context.getLong(key: String, defValue: Long = 0): Long {
 
@@ -115,9 +108,9 @@ fun Context.getLong(key: String, defValue: Long = 0): Long {
 }
 
 /**
- * Set a long value in the default preferences.
+ * Sets a long value in the default preferences.
  *
- * Note that if this value is null then the method does nothing.
+ * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
  * @param value The new value for the preference which is allowed to be null.
@@ -128,14 +121,14 @@ fun Context.putLong(key: String, value: Long?) {
 }
 
 /**
- * Retrieve a non-null string value from the default preferences.
+ * Retrieves a non-null string value from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValue Value to return if this preference does not exist (empty by default).
  *
  * @return Returns the preference value if it exists, or [defValue].
  *
- * @throws ClassCastException if there is a preference with this name that is not a string.
+ * @throws ClassCastException If there is a preference with this name that is not a string.
  */
 fun Context.getString(key: String, defValue: String = ""): String {
 
@@ -143,13 +136,13 @@ fun Context.getString(key: String, defValue: String = ""): String {
 }
 
 /**
- * Retrieve a nullable string value from the default preferences.
+ * Retrieves a nullable string value from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  *
  * @return Returns the preference value if it exists, or null.
  *
- * @throws ClassCastException if there is a preference with this name that is not a string.
+ * @throws ClassCastException If there is a preference with this name that is not a string.
  */
 fun Context.getStringOrNull(key: String): String? {
 
@@ -157,9 +150,9 @@ fun Context.getStringOrNull(key: String): String? {
 }
 
 /**
- * Set a string value in the default preferences.
+ * Sets a string value in the default preferences.
  *
- * Note that if this value is null then the method does nothing.
+ * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
  * @param value The new value for the preference which is allowed to be null.
@@ -170,14 +163,14 @@ fun Context.putString(key: String, value: String?) {
 }
 
 /**
- * Retrieve a set of boolean values from the default preferences.
+ * Retrieves a set of boolean values from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValues Values to return if this preference does not exist (empty by default).
  *
  * @return Returns the preference values if they exist, or [defValues].
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.getBooleanSet(key: String, defValues: Set<Boolean> = emptySet()): Set<Boolean> {
 
@@ -185,7 +178,7 @@ fun Context.getBooleanSet(key: String, defValues: Set<Boolean> = emptySet()): Se
 }
 
 /**
- * Set a set of boolean values in the default preferences.
+ * Sets a set of boolean values in the default preferences.
  *
  * Note that if this set is null then the method does nothing.
  *
@@ -198,14 +191,14 @@ fun Context.putBooleanSet(key: String, values: Set<Boolean>?) {
 }
 
 /**
- * Retrieve a set of float values from the default preferences.
+ * Retrieves a set of float values from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValues Values to return if this preference does not exist (empty by default).
  *
  * @return Returns the preference values if they exist, or [defValues].
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.getFloatSet(key: String, defValues: Set<Float> = emptySet()): Set<Float> {
 
@@ -213,7 +206,7 @@ fun Context.getFloatSet(key: String, defValues: Set<Float> = emptySet()): Set<Fl
 }
 
 /**
- * Set a set of float values in the default preferences.
+ * Sets a set of float values in the default preferences.
  *
  * Note that if this set is null then the method does nothing.
  *
@@ -226,14 +219,14 @@ fun Context.putFloatSet(key: String, values: Set<Float>?) {
 }
 
 /**
- * Retrieve a set of int values from the default preferences.
+ * Retrieves a set of int values from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValues Values to return if this preference does not exist (empty by default).
  *
  * @return Returns the preference values if they exist, or defValues.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.getIntSet(key: String, defValues: Set<Int> = emptySet()): Set<Int> {
 
@@ -241,7 +234,7 @@ fun Context.getIntSet(key: String, defValues: Set<Int> = emptySet()): Set<Int> {
 }
 
 /**
- * Set a set of int values in the default preferences.
+ * Sets a set of int values in the default preferences.
  *
  * Note that if this set is null then the method does nothing.
  *
@@ -254,14 +247,14 @@ fun Context.putIntSet(key: String, values: Set<Int>?) {
 }
 
 /**
- * Retrieve a set of long values from the default preferences.
+ * Retrieves a set of long values from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValues Values to return if this preference does not exist (empty by default).
  *
  * @return Returns the preference values if they exist, or defValues.
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.getLongSet(key: String, defValues: Set<Long> = emptySet()): Set<Long> {
 
@@ -269,7 +262,7 @@ fun Context.getLongSet(key: String, defValues: Set<Long> = emptySet()): Set<Long
 }
 
 /**
- * Set a set of long values in the default preferences.
+ * Sets a set of long values in the default preferences.
  *
  * Note that if this set is null then the method does nothing.
  *
@@ -282,14 +275,14 @@ fun Context.putLongSet(key: String, values: Set<Long>?) {
 }
 
 /**
- * Retrieve a set of string values from the default preferences.
+ * Retrieves a set of string values from the default preferences.
  *
  * @param key The name of the preference to retrieve.
  * @param defValues Values to return if this preference does not exist (empty by default).
  *
  * @return Returns the preference values if they exist, or [defValues].
  *
- * @throws ClassCastException if there is a preference with this name that is not a set.
+ * @throws ClassCastException If there is a preference with this name that is not a set.
  */
 fun Context.getStringSet(key: String, defValues: Set<String> = emptySet()): Set<String> {
 
@@ -297,7 +290,7 @@ fun Context.getStringSet(key: String, defValues: Set<String> = emptySet()): Set<
 }
 
 /**
- * Set a set of string values in the default preferences.
+ * Sets a set of string values in the default preferences.
  *
  * Note that if this set is null then the method does nothing.
  *
@@ -310,45 +303,7 @@ fun Context.putStringSet(key: String, values: Set<String>?) {
 }
 
 /**
- * Populate the given container with a preference fragment generated from an XML resource.
- *
- * @param containerViewId Identifier of the container where the fragment will be added.
- * @param preferencesResId The XML resource ID to inflate.
- */
-fun Activity.populateWithPreferences(containerViewId: Int, preferencesResId: Int) {
-
-    val settingsFragment = SettingsFragment.build(preferencesResId)
-
-    fragmentManager.beginTransaction().replace(containerViewId, settingsFragment).commit()
-}
-
-/**
- * Implementation of the preference fragment which inflates a given XML resource.
- *
- * Note that you must pass the XML resource ID as a construction argument or use the builder.
- */
-class SettingsFragment : PreferenceFragment() {
-
-    companion object Builder {
-
-        const val PREFERENCE_RES_ID = "com.calintat.github.PREFERENCE_RES_ID"
-
-        fun build(preferencesResId: Int): SettingsFragment {
-
-            return SettingsFragment().withArguments(PREFERENCE_RES_ID to preferencesResId)
-        }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-
-        super.onCreate(savedInstanceState)
-
-        addPreferencesFromResource(arguments.getInt(PREFERENCE_RES_ID))
-    }
-}
-
-/**
- * Convert a set of strings to a set of values of type [T].
+ * Converts a set of strings to a set of values of type [T].
  *
  * Note that [transform] must return null if it fails, and those values will be omitted.
  */
@@ -358,6 +313,6 @@ private fun <T : Any> convert(set: Set<String>, transform: (String) -> T?): Set<
 }
 
 /**
- * Convert a set of values of type [T] to a set of strings.
+ * Converts a set of values of type [T] to a set of strings.
  */
 private fun <T> convert(set: Set<T>) = set.map { it.toString() }.toSet()
