@@ -25,7 +25,6 @@ fun Context.getBoolean(key: String, defValue: Boolean = false): Boolean {
 
 /**
  * Sets a boolean value in the default preferences.
- *
  * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
@@ -53,7 +52,6 @@ fun Context.getFloat(key: String, defValue: Float = 0f): Float {
 
 /**
  * Sets a float value in the default preferences.
- *
  * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
@@ -81,7 +79,6 @@ fun Context.getInt(key: String, defValue: Int = 0): Int {
 
 /**
  * Sets an int value in the default preferences.
- *
  * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
@@ -109,7 +106,6 @@ fun Context.getLong(key: String, defValue: Long = 0): Long {
 
 /**
  * Sets a long value in the default preferences.
- *
  * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
@@ -151,7 +147,6 @@ fun Context.getStringOrNull(key: String): String? {
 
 /**
  * Sets a string value in the default preferences.
- *
  * Note that if the value is null then this does nothing.
  *
  * @param key The name of the preference to modify.
@@ -179,7 +174,6 @@ fun Context.getBooleanSet(key: String, defValues: Set<Boolean> = emptySet()): Se
 
 /**
  * Sets a set of boolean values in the default preferences.
- *
  * Note that if this set is null then the method does nothing.
  *
  * @param key The name of the preference to modify.
@@ -207,7 +201,6 @@ fun Context.getFloatSet(key: String, defValues: Set<Float> = emptySet()): Set<Fl
 
 /**
  * Sets a set of float values in the default preferences.
- *
  * Note that if this set is null then the method does nothing.
  *
  * @param key The name of the preference to modify.
@@ -235,7 +228,6 @@ fun Context.getIntSet(key: String, defValues: Set<Int> = emptySet()): Set<Int> {
 
 /**
  * Sets a set of int values in the default preferences.
- *
  * Note that if this set is null then the method does nothing.
  *
  * @param key The name of the preference to modify.
@@ -263,7 +255,6 @@ fun Context.getLongSet(key: String, defValues: Set<Long> = emptySet()): Set<Long
 
 /**
  * Sets a set of long values in the default preferences.
- *
  * Note that if this set is null then the method does nothing.
  *
  * @param key The name of the preference to modify.
@@ -291,7 +282,6 @@ fun Context.getStringSet(key: String, defValues: Set<String> = emptySet()): Set<
 
 /**
  * Sets a set of string values in the default preferences.
- *
  * Note that if this set is null then the method does nothing.
  *
  * @param key The name of the preference to modify.
@@ -304,7 +294,6 @@ fun Context.putStringSet(key: String, values: Set<String>?) {
 
 /**
  * Converts a set of strings to a set of values of type [T].
- *
  * Note that [transform] must return null if it fails, and those values will be omitted.
  */
 private fun <T : Any> convert(set: Set<String>, transform: (String) -> T?): Set<T> {
