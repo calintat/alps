@@ -56,17 +56,17 @@ internal inline fun <T : Preference> PreferenceGroup.pref(build: (Context) -> T,
     return build(context).apply { if (key != null) this.key = key; addPreference(this); init() }
 }
 
-inline fun PreferenceGroup.checkBoxPreference(key: String, init: Init<CheckBoxPreference>) = pref(::CheckBoxPreference, key, init)
+inline fun PreferenceGroup.checkBoxPreference(key: String? = null, init: Init<CheckBoxPreference>) = pref(::CheckBoxPreference, key, init)
 
-inline fun PreferenceGroup.editTextPreference(key: String, init: Init<EditTextPreference>) = pref(::EditTextPreference, key, init)
+inline fun PreferenceGroup.editTextPreference(key: String? = null, init: Init<EditTextPreference>) = pref(::EditTextPreference, key, init)
 
-inline fun PreferenceGroup.ringtonePreference(key: String, init: Init<RingtonePreference>) = pref(::RingtonePreference, key, init)
+inline fun PreferenceGroup.ringtonePreference(key: String? = null, init: Init<RingtonePreference>) = pref(::RingtonePreference, key, init)
 
-inline fun PreferenceGroup.switchPreference(key: String, init: Init<SwitchPreference>) = pref(::SwitchPreference, key, init)
+inline fun PreferenceGroup.switchPreference(key: String? = null, init: Init<SwitchPreference>) = pref(::SwitchPreference, key, init)
 
-inline fun PreferenceGroup.listPreference(key: String, init: Init<ListPreference>) = pref(::ListPreference, key, init)
+inline fun PreferenceGroup.listPreference(key: String? = null, init: Init<ListPreference>) = pref(::ListPreference, key, init)
 
-inline fun PreferenceGroup.multiSelectListPreference(key: String, init: Init<MultiSelectListPreference>) = pref(::MultiSelectListPreference, key, init)
+inline fun PreferenceGroup.multiSelectListPreference(key: String? = null, init: Init<MultiSelectListPreference>) = pref(::MultiSelectListPreference, key, init)
 
 inline fun PreferenceGroup.preference(key: String? = null, init: Init<Preference>) = pref(::Preference, key, init)
 
