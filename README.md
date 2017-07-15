@@ -21,7 +21,7 @@ Add Alps as a  dependency in the app build file:
 
 ```gradle
 dependencies {
-    compile "com.github.calintat:alps:1.3"
+    compile "com.github.calintat:alps:1.3.1"
 }
 ```
 
