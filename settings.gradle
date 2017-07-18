@@ -1,1 +1,1 @@
-include ':library'
+include ':alps-core', ':alps-dsl'

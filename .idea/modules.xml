@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Alps.iml" filepath="$PROJECT_DIR$/Alps.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alps-core/alps-core.iml" filepath="$PROJECT_DIR$/alps-core/alps-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/alps-dsl/alps-dsl.iml" filepath="$PROJECT_DIR$/alps-dsl/alps-dsl.iml" />
     </modules>
   </component>
 </project>
