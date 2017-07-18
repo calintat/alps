@@ -21,7 +21,7 @@ Add Alps as a  dependency in the app build file:
 
 ```gradle
 dependencies {
-    compile "com.github.calintat:alps:1.3.1"
+    compile "com.github.calintat.alps:alps-core:1.3.2"
 }
 ```
 
@@ -65,6 +65,12 @@ public class SettingsActivity extends Activity {
 ### Define preferences with the Alps DSL
 
 In Kotlin, you can also use a DSL to define your preferences and add them to your settings activity:
+
+```gradle
+dependencies {
+    compile "com.github.calintat.alps:alps-dsl:1.3.2"
+}
+```
 
 ```kotlin
 class SettingsActivity : Activity() {
