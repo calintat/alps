@@ -40,7 +40,7 @@ fun Context.booleanPref(key: String, defValue: Boolean = false): PreferencePrope
  * @throws ClassCastException If there is a preference with this name that is not a float.
  */
 fun Context.floatPref(key: String, defValue: Float = 0f): PreferenceProperty<Float> {
-    
+
     return PreferenceProperty(key, defValue, Context::getFloat, Context::putFloat)
 }
 
@@ -55,7 +55,7 @@ fun Context.floatPref(key: String, defValue: Float = 0f): PreferenceProperty<Flo
  * @throws ClassCastException If there is a preference with this name that is not an int.
  */
 fun Context.intPref(key: String, defValue: Int = 0): PreferenceProperty<Int> {
-    
+
     return PreferenceProperty(key, defValue, Context::getInt, Context::putInt)
 }
 
@@ -70,7 +70,7 @@ fun Context.intPref(key: String, defValue: Int = 0): PreferenceProperty<Int> {
  * @throws ClassCastException If there is a preference with this name that is not a long.
  */
 fun Context.longPref(key: String, defValue: Long = 0): PreferenceProperty<Long> {
-    
+
     return PreferenceProperty(key, defValue, Context::getLong, Context::putLong)
 }
 
@@ -85,7 +85,7 @@ fun Context.longPref(key: String, defValue: Long = 0): PreferenceProperty<Long> 
  * @throws ClassCastException If there is a preference with this name that is not a string.
  */
 fun Context.stringPref(key: String, defValue: String = ""): PreferenceProperty<String> {
-    
+
     return PreferenceProperty(key, defValue, Context::getString, Context::putString)
 }
 
