@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.github.calintat
+package com.calintat.alps
 
 import android.content.Context
 import kotlin.properties.ReadWriteProperty
