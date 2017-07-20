@@ -4,6 +4,7 @@ package com.calintat.alps
 
 import android.app.Activity
 import android.os.Bundle
+import android.preference.Preference
 import android.preference.PreferenceFragment
 
 /**
@@ -43,3 +44,7 @@ class PreferencesFragmentXml : PreferenceFragment() {
         super.onCreate(savedInstanceState); addPreferencesFromResource(arguments.getInt(key))
     }
 }
+
+inline fun <reified T : Preference> PreferenceFragment.findPref(key: CharSequence): T = findPreference(key) as T
+
+inline fun <reified T : Preference> PreferenceFragment.findPrefOrNull(key: CharSequence): T? = findPreference(key) as? T
