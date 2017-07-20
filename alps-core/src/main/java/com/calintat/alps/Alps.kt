@@ -50,7 +50,14 @@ fun Context.putBoolean(key: String, value: Boolean?) {
  */
 fun Context.getFloat(key: String, defValue: Float = 0f): Float {
 
-    return defaultPreferences.getFloat(key, defValue)
+    return try {
+
+        defaultPreferences.getFloat(key, defValue)
+    }
+    catch (e: ClassCastException) {
+
+        defaultPreferences.getString(key, defValue.toString()).toFloatOrNull() ?: throw e
+    }
 }
 
 /**
@@ -77,7 +84,14 @@ fun Context.putFloat(key: String, value: Float?) {
  */
 fun Context.getInt(key: String, defValue: Int = 0): Int {
 
-    return defaultPreferences.getInt(key, defValue)
+    return try {
+
+        defaultPreferences.getInt(key, defValue)
+    }
+    catch (e: ClassCastException) {
+
+        defaultPreferences.getString(key, defValue.toString()).toIntOrNull() ?: throw e
+    }
 }
 
 /**
@@ -104,7 +118,14 @@ fun Context.putInt(key: String, value: Int?) {
  */
 fun Context.getLong(key: String, defValue: Long = 0): Long {
 
-    return defaultPreferences.getLong(key, defValue)
+    return try {
+
+        defaultPreferences.getLong(key, defValue)
+    }
+    catch (e: ClassCastException) {
+
+        defaultPreferences.getString(key, defValue.toString()).toLongOrNull() ?: throw e
+    }
 }
 
 /**
