@@ -4,7 +4,10 @@ package com.calintat.alps
 
 import android.app.Activity
 import android.os.Bundle
+import android.preference.Preference
+import android.preference.PreferenceActivity
 import android.preference.PreferenceFragment
+import android.preference.PreferenceGroup
 
 /**
  * Populates the given container with a preference fragment generated from an XML resource.
@@ -43,3 +46,7 @@ class PreferencesFragmentXml : PreferenceFragment() {
         super.onCreate(savedInstanceState); addPreferencesFromResource(arguments.getInt(key))
     }
 }
+
+inline fun <reified T : Preference> PreferenceFragment.findPref(key: CharSequence): T = findPreference(key) as T
+
+inline fun <reified T : Preference> PreferenceFragment.findPrefOrNull(key: CharSequence): T? = findPreference(key) as? T
