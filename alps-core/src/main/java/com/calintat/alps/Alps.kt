@@ -2,6 +2,7 @@
 
 package com.calintat.alps
 
+import android.app.Fragment
 import android.content.Context
 import android.preference.PreferenceManager
 
@@ -293,6 +294,50 @@ fun Context.putStringSet(key: String, values: Set<String>?) {
 
     values?.let { defaultPreferences.edit().putStringSet(key, it).apply() }
 }
+
+val Fragment.defaultPreferences get() = activity.defaultPreferences
+
+fun Fragment.getBoolean(key: String, defValue: Boolean = false) = activity.getBoolean(key, defValue)
+
+fun Fragment.putBoolean(key: String, value: Boolean?) = activity.putBoolean(key, value)
+
+fun Fragment.getFloat(key: String, defValue: Float = 0f) = activity.getFloat(key, defValue)
+
+fun Fragment.putFloat(key: String, value: Float?) = activity.putFloat(key, value)
+
+fun Fragment.getInt(key: String, defValue: Int = 0) = activity.getInt(key, defValue)
+
+fun Fragment.putInt(key: String, value: Int?) = activity.putInt(key, value)
+
+fun Fragment.getLong(key: String, defValue: Long = 0) = activity.getLong(key, defValue)
+
+fun Fragment.putLong(key: String, value: Long?) = activity.putLong(key, value)
+
+fun Fragment.getString(key: String, defValue: String = "") = activity.getString(key, defValue)
+
+fun Fragment.getStringOrNull(key: String) = activity.getStringOrNull(key)
+
+fun Fragment.putString(key: String, value: String?) = activity.putString(key, value)
+
+fun Fragment.getBooleanSet(key: String, defValues: Set<Boolean> = emptySet()) = activity.getBooleanSet(key, defValues)
+
+fun Fragment.putBooleanSet(key: String, values: Set<Boolean>?) = activity.putBooleanSet(key, values)
+
+fun Fragment.getFloatSet(key: String, defValues: Set<Float> = emptySet()) = activity.getFloatSet(key, defValues)
+
+fun Fragment.putFloatSet(key: String, values: Set<Float>?) = activity.putFloatSet(key, values)
+
+fun Fragment.getIntSet(key: String, defValues: Set<Int> = emptySet()) = activity.getIntSet(key, defValues)
+
+fun Fragment.putIntSet(key: String, values: Set<Int>?) = activity.putIntSet(key, values)
+
+fun Fragment.getLongSet(key: String, defValues: Set<Long> = emptySet()) = activity.getLongSet(key, defValues)
+
+fun Fragment.putLongSet(key: String, values: Set<Long>?) = activity.putLongSet(key, values)
+
+fun Fragment.getStringSet(key: String, defValues: Set<String> = emptySet()) = activity.getStringSet(key, defValues)
+
+fun Fragment.putStringSet(key: String, values: Set<String>?) = activity.putStringSet(key, values)
 
 /**
  * Converts a set of strings to a set of values of type [T].
