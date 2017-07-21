@@ -1,5 +1,7 @@
 package com.calintat.alps
 
+import android.content.Intent
+import android.net.Uri
 import android.preference.*
 
 private const val NO_GETTER = "Property has no getter"
@@ -57,3 +59,7 @@ var MultiSelectListPreference.entriesResource: Int
 var MultiSelectListPreference.entryValuesResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
     set(value) = setEntryValues(value)
+
+var Preference.url: String
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
+    set(value) { intent = Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(value) } }

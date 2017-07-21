@@ -21,6 +21,7 @@ private typealias Init<T> = (@AlpsDslMarker T).() -> Unit
 /**
  * Set an url to be opened when this preference is clicked.
  */
+@Deprecated(message = "Use url property instead", replaceWith = ReplaceWith("this.url = url"))
 fun Preference.setUrl(url: String) {
 
     intent = Intent(Intent.ACTION_VIEW).apply { data = Uri.parse(url) }
