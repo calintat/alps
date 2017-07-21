@@ -21,7 +21,7 @@ Add Alps as a  dependency in the app build file:
 
 ```gradle
 dependencies {
-    compile "com.github.calintat.alps:alps-core:2.0"
+    compile "com.github.calintat.alps:alps-core:2.0.1"
 }
 ```
 
@@ -68,7 +68,7 @@ In Kotlin, you can also use a DSL to define your preferences and add them to you
 
 ```gradle
 dependencies {
-    compile "com.github.calintat.alps:alps-dsl:2.0"
+    compile "com.github.calintat.alps:alps-dsl:2.0.1"
 }
 ```
 
