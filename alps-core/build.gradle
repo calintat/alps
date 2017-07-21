@@ -20,7 +20,7 @@ android {
 
         versionCode 11
 
-        versionName "2.0.1-1"
+        versionName "2.0.2"
     }
 }
 
