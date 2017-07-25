@@ -56,6 +56,12 @@ fun Activity.populateWithPreferences(containerViewId: Int, init: Init<Preference
 @PublishedApi
 internal inline fun <T : Preference> PreferenceGroup.pref(build: (Context) -> T, key: String? = null, init: Init<T>): T {
 
+    return build(context).apply { if (key != null) this.key = key; init(); addPreference(this) }
+}
+
+@PublishedApi
+internal inline fun <T : Preference> PreferenceGroup.prefGroup(build: (Context) -> T, key: String? = null, init: Init<T>): T {
+
     return build(context).apply { if (key != null) this.key = key; addPreference(this); init() }
 }
 
@@ -73,6 +79,6 @@ inline fun PreferenceGroup.multiSelectListPreference(key: String? = null, init: 
 
 inline fun PreferenceGroup.preference(key: String? = null, init: Init<Preference>) = pref(::Preference, key, init)
 
-inline fun PreferenceGroup.preferenceCategory(key: String? = null, init: Init<PreferenceCategory>) = pref(::PreferenceCategory, key, init)
+inline fun PreferenceGroup.preferenceCategory(key: String? = null, init: Init<PreferenceCategory>) = prefGroup(::PreferenceCategory, key, init)
 
-inline fun PreferenceGroup.preferenceScreen(key: String? = null, init: Init<PreferenceScreen>) = pref(preferenceManager::createPreferenceScreen, key, init)!!
+inline fun PreferenceGroup.preferenceScreen(key: String? = null, init: Init<PreferenceScreen>) = prefGroup(preferenceManager::createPreferenceScreen, key, init)!!
