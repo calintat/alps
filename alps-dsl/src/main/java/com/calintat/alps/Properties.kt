@@ -52,6 +52,20 @@ var ListPreference.entryValuesResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
     set(value) = setEntryValues(value)
 
+var ListPreference.pairs: List<Pair<Int, Any>>
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
+    set(value) {
+        entries = value.map { context.getString(it.first) }.toTypedArray()
+        entryValues = value.map { it.second.toString() }.toTypedArray()
+    }
+
+var MultiSelectListPreference.pairs: List<Pair<Int, Any>>
+    @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
+    set(value) {
+        entries = value.map { context.getString(it.first) }.toTypedArray()
+        entryValues = value.map { it.second.toString() }.toTypedArray()
+    }
+
 var MultiSelectListPreference.entriesResource: Int
     @Deprecated(NO_GETTER, level = DeprecationLevel.ERROR) get() = noGetter()
     set(value) = setEntries(value)
