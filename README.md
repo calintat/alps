@@ -1,6 +1,6 @@
 # Alps
 
-[![](https://jitpack.io/v/calintat/alps.svg?style=flat-square)](https://jitpack.io/#calintat/alps)
+[![](https://jitpack.io/v/calintat/alps.svg)](https://jitpack.io/#calintat/alps)
 
 Alps is a minimal Android library for reading and writing to your app's shared preferences.
 
