@@ -8,7 +8,7 @@ group = 'com.github.calintat'
 
 android {
 
-    compileSdkVersion 25
+    compileSdkVersion 26
 
     buildToolsVersion "26.0.0"
 
@@ -16,7 +16,7 @@ android {
 
         minSdkVersion 21
 
-        targetSdkVersion 25
+        targetSdkVersion 26
 
         versionCode 11
 
