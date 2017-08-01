@@ -18,9 +18,9 @@ android {
 
         targetSdkVersion 26
 
-        versionCode 11
+        versionCode 12
 
-        versionName "2.0.2"
+        versionName "2.0.3"
     }
 }
 
