@@ -1,4 +1,4 @@
-package com.calintat.alps
+package com.calintat.alps.dsl
 
 import android.preference.*
 

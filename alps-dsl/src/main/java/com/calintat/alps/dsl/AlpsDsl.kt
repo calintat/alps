@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package com.calintat.alps
+package com.calintat.alps.dsl
 
 import android.app.Activity
 import android.content.Context
